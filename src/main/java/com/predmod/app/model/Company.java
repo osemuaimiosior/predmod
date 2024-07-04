@@ -32,10 +32,6 @@ public class Company {
         this.name = name;
     }
 
-    public UUID getId() {
-        return id;
-    }
-
     public String getLocation() {
         return location;
     }
