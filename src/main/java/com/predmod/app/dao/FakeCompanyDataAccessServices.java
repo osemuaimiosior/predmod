@@ -5,13 +5,15 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository(value = "fakeDAO")
-public class FakeCompanyDataAccessServices implements CompanyDao{
+@Repository("fakeDaO")
+public class FakeCompanyDataAccessServices implements CompanyDao {
 
     private static List<Company> db = new ArrayList<>();
+
     @Override
     public int insertCompany(UUID id, Company company) {
-        db.add(new Company(company.getCompanySize(),
+        db.add(new Company(company.getId(),
+                company.getCompanySize(),
                 company.getLocation(),
                 company.getIndustry(),
                 company.getEstYear(),
@@ -20,3 +22,5 @@ public class FakeCompanyDataAccessServices implements CompanyDao{
         return 1;
     }
 }
+
+

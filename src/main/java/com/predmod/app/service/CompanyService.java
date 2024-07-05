@@ -9,10 +9,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class CompanyService {
 
-    private final CompanyDao companyDao;
-    @Autowired
-    public CompanyService(@Qualifier(value = "fakeDao") CompanyDao companyDao) {
 
+    @Qualifier("fakeDao")
+    private final CompanyDao companyDao;
+
+    @Autowired
+    public CompanyService(CompanyDao companyDao) {
         this.companyDao = companyDao;
     }
 

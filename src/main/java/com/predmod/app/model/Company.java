@@ -2,7 +2,14 @@ package com.predmod.app.model;
 
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Company {
+    private final UUID id;
+    public UUID getId() {
+        return id;
+    }
+
     private String name;
     private String location;
     private String industry;
@@ -10,16 +17,18 @@ public class Company {
     private final String estYear;
     private String about;
 
-    public Company(String name,
-                   String location,
-                   String industry,
-                   String companySize,
-                   String estYear,
-                   String about) {
+    public Company(@JsonProperty("id") UUID id,
+                    @JsonProperty("name") String name,
+                    @JsonProperty("location")String location,
+                    @JsonProperty("industry")String industry,
+                    @JsonProperty("companySize")String companySize,
+                    @JsonProperty("estYear")String estYear,
+                    @JsonProperty("about")String about) {
         this.name = name;
         this.location = location;
         this.industry = industry;
         this.companySize = companySize;
+        this.id = id;
         this.estYear = estYear;
         this.about = about;
     }
