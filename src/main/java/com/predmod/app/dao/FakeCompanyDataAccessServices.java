@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository("fakeDaO")
+@Repository("fakeDao")
 public class FakeCompanyDataAccessServices implements CompanyDao {
 
     private static List<Company> db = new ArrayList<>();
