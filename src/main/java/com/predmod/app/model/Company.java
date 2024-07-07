@@ -1,40 +1,43 @@
 package com.predmod.app.model;
 
-import java.util.UUID;
+import java.util.*;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Company {
-    private final UUID id;
-    public UUID getId() {
-        return id;
-    }
-
+    private final int id;
+    private String email;
     private String name;
     private String location;
     private String industry;
-    private String companySize;
-    private final String estYear;
+    private int companySize;
+    private final int estYear;
     private String about;
 
-    public Company(@JsonProperty("id") UUID id,
+    public Company(@JsonProperty("id") int id,
                     @JsonProperty("name") String name,
+                   @JsonProperty("email") String email,
                     @JsonProperty("location")String location,
                     @JsonProperty("industry")String industry,
-                    @JsonProperty("companySize")String companySize,
-                    @JsonProperty("estYear")String estYear,
+                    @JsonProperty("companySize")int companySize,
+                    @JsonProperty("estYear")int estYear,
                     @JsonProperty("about")String about) {
-        this.name = name;
-        this.location = location;
-        this.industry = industry;
-        this.companySize = companySize;
-        this.id = id;
-        this.estYear = estYear;
-        this.about = about;
+                        this.id = id;
+                        this.name = name;
+                        this.email = email;
+                        this.location = location;
+                        this.industry = industry;
+                        this.companySize = companySize;
+                        this.estYear = estYear;
+                        this.about = about;
     }
 
     public String getName() {
         return name;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setName(String name) {
@@ -42,6 +45,7 @@ public class Company {
     }
 
     public String getLocation() {
+
         return location;
     }
 
@@ -57,15 +61,15 @@ public class Company {
         this.industry = industry;
     }
 
-    public String getCompanySize() {
+    public int getCompanySize() {
         return companySize;
     }
 
-    public void setCompanySize(String companySize) {
+    public void setCompanySize(int companySize) {
         this.companySize = companySize;
     }
 
-    public String getEstYear() {
+    public int getEstYear() {
         return estYear;
     }
 
@@ -75,5 +79,13 @@ public class Company {
 
     public void setAbout(String about) {
         this.about = about;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
