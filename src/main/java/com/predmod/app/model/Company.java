@@ -1,24 +1,31 @@
 package com.predmod.app.model;
 
-import java.util.*;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.jetbrains.annotations.NotNull;
+
 
 public class Company {
     private final int id;
+    @NotNull
     private String email;
+    @NotNull
     private String name;
+    @NotNull
     private String location;
+    @NotNull
     private String industry;
+    @NotNull
     private int companySize;
+    @NotNull
     private final int estYear;
+    @NotNull
     private String about;
 
     public Company(@JsonProperty("id") int id,
                     @JsonProperty("name") String name,
-                   @JsonProperty("email") String email,
+                    @JsonProperty("email") String email,
                     @JsonProperty("location")String location,
-                    @JsonProperty("industry")String industry,
+                    @JsonProperty("industry") String industry,
                     @JsonProperty("companySize")int companySize,
                     @JsonProperty("estYear")int estYear,
                     @JsonProperty("about")String about) {

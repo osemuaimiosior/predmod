@@ -3,6 +3,8 @@ package com.predmod.app.api;
 import com.predmod.app.model.Company;
 import com.predmod.app.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -19,7 +21,7 @@ public class CompanyController {
     }
 
     @PostMapping
-    public void addCompany (@RequestBody Company company) {
+    public void addCompany (@Validated @NonNull @RequestBody Company company) {
 
         companyService.addCompany(company);
     }
@@ -47,7 +49,7 @@ public class CompanyController {
     }
 
     @PutMapping(path = "{email}")
-    public void updateCompanyInfo(@PathVariable("email") String email, @RequestBody Company companyUpdate){
+    public void updateCompanyInfo(@PathVariable("email") String email, @Validated @NonNull @RequestBody Company companyUpdate){
         companyService.updateCompanyInfo(email, companyUpdate);
     }
 
